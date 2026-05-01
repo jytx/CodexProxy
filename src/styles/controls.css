@@ -1,0 +1,647 @@
+/* 按钮样式 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-radius: 10px;
+  padding: 8px 16px;
+  font: 600 0.84rem/1 var(--font-ui);
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: all 150ms ease;
+  outline: none;
+}
+
+.btnPrimary {
+  background: var(--button-primary-bg);
+  border: 1px solid var(--button-primary-border);
+  color: var(--ink);
+}
+
+.btnPrimary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.btnGhost {
+  background: var(--button-ghost-bg);
+  border: 1px solid var(--button-ghost-border);
+  color: var(--ink);
+}
+
+.btnGhost:hover {
+  filter: brightness(1.08);
+}
+
+.btnSm {
+  padding: 5px 10px;
+  font-size: 0.76rem;
+  border-radius: 8px;
+}
+
+.btnDanger {
+  background: rgba(242, 106, 119, 0.12);
+  border: 1px solid rgba(242, 106, 119, 0.3);
+  color: #f26a77;
+}
+
+.btnDanger:hover {
+  background: rgba(242, 106, 119, 0.2);
+}
+
+.btnIcon {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: 8px;
+  background: var(--button-ghost-bg);
+  border: 1px solid var(--button-ghost-border);
+  color: var(--subtle);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 150ms ease;
+}
+
+.btnIcon:hover {
+  color: var(--ink);
+  filter: brightness(1.08);
+}
+
+/* 输入框样式 */
+.inputField {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  font: 400 0.88rem/1.4 var(--font-ui);
+  transition: border-color 150ms ease;
+  outline: none;
+}
+
+.inputField:focus {
+  border-color: var(--brand-cool);
+}
+
+.inputField::placeholder {
+  color: var(--subtle);
+}
+
+.inputField:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 标签样式 */
+.label {
+  display: block;
+  font: 600 0.78rem/1.4 var(--font-ui);
+  color: var(--subtle);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+/* 状态指示器 */
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.statusDot.running {
+  background: #34d399;
+  box-shadow: 0 0 6px rgba(52, 211, 153, 0.5);
+}
+
+.statusDot.stopped {
+  background: #9ca3af;
+}
+
+/* ==================== 状态栏 ==================== */
+.statusBar {
+  padding: 16px 20px;
+  border-radius: 14px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.statusInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.statusTitle {
+  font: 600 0.92rem/1.2 var(--font-ui);
+}
+
+.statusSubtitle {
+  font: 400 0.78rem/1.4 var(--font-ui);
+  color: var(--subtle);
+}
+
+.statusMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.statusCount {
+  font: 400 0.78rem/1 var(--font-mono);
+  color: var(--subtle);
+}
+
+/* ==================== 卡片网格区 ==================== */
+.cardSection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cardToolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2px;
+}
+
+.cardToolbarTitle {
+  font: 650 0.88rem/1.2 var(--font-ui);
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+/* ==================== 代理卡片 ==================== */
+.proxyCard {
+  padding: 18px 20px;
+  border-radius: 14px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color 150ms ease, box-shadow 150ms ease, opacity 150ms ease, transform 200ms ease;
+  position: relative;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+
+.proxyCard:active {
+  cursor: grabbing;
+}
+
+/* 拖拽幽灵（固定定位，跟随鼠标） */
+.proxyCard.dragGhost {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.88;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+  transform: scale(1.02);
+  transition: none;
+}
+
+/* 拖拽占位符：保持网格位置 */
+.proxyCardPlaceholder {
+  border: 2px dashed var(--line);
+  border-radius: 14px;
+  opacity: 0.35;
+  min-height: 140px;
+}
+
+.proxyCard:hover {
+  border-color: color-mix(in srgb, var(--line) 70%, var(--brand-cool) 30%);
+}
+
+.proxyCard.active {
+  border-color: rgba(52, 211, 153, 0.4);
+  box-shadow: 0 0 12px rgba(52, 211, 153, 0.08);
+}
+
+.proxyCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.proxyCardName {
+  font: 600 0.9rem/1.2 var(--font-ui);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.proxyCardUrl {
+  font: 400 0.76rem/1.4 var(--font-mono);
+  color: var(--subtle);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.proxyCardModel {
+  font: 400 0.78rem/1.4 var(--font-ui);
+  color: var(--subtle);
+}
+
+.proxyCardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+.proxyCardActions {
+  display: flex;
+  gap: 6px;
+}
+
+/* ==================== 弹窗 ==================== */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 150ms ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modalContent {
+  width: min(480px, 92vw);
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 18px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: slideUp 200ms ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(12px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modalTitle {
+  font: 650 1rem/1.2 var(--font-ui);
+}
+
+.modalBody {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 14px 16px;
+  align-items: center;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+.modalFieldGroup {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.modalFieldGroup .inputField {
+  padding-right: 36px;
+}
+
+.eyeToggle {
+  position: absolute;
+  right: 8px;
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: var(--subtle);
+  display: flex;
+  align-items: center;
+}
+
+.eyeToggle:hover {
+  color: var(--ink);
+}
+
+/* ==================== 错误提示 ==================== */
+.errorBanner {
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: rgba(242, 106, 119, 0.12);
+  border: 1px solid rgba(242, 106, 119, 0.3);
+  font: 400 0.82rem/1.4 var(--font-ui);
+  color: #f26a77;
+}
+
+/* ==================== 日志面板 ==================== */
+.logOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 150ms ease;
+}
+
+.logPanel {
+  width: 80vw;
+  max-width: 1400px;
+  height: 80vh;
+  border-radius: 18px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 200ms ease;
+}
+
+.logHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--line);
+  flex-shrink: 0;
+}
+
+.logTitle {
+  font: 650 0.92rem/1.2 var(--font-ui);
+}
+
+.logActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logCount {
+  font: 400 0.76rem/1 var(--font-mono);
+  color: var(--subtle);
+}
+
+.logList {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 0;
+  min-height: 100px;
+}
+
+.logEmpty {
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--subtle);
+  font: 400 0.82rem/1.6 var(--font-ui);
+}
+
+.logEntry {
+  display: grid;
+  grid-template-columns: 68px 44px 120px 1fr 40px 36px 56px auto;
+  gap: 8px;
+  align-items: center;
+  padding: 5px 20px;
+  font: 400 0.74rem/1.5 var(--font-mono);
+  color: var(--ink);
+  transition: background 80ms ease;
+  cursor: pointer;
+}
+
+.logEntry:hover {
+  background: color-mix(in srgb, var(--line) 30%, transparent);
+}
+
+.logEntry.logError {
+  background: rgba(242, 106, 119, 0.06);
+}
+
+.logTime {
+  color: var(--subtle);
+}
+
+.logMethod {
+  font-weight: 600;
+  color: var(--brand-cool);
+}
+
+.logPath {
+  color: var(--subtle);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.logModel {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.logStream {
+  font: 400 0.68rem/1 var(--font-mono);
+  color: var(--subtle);
+  background: color-mix(in srgb, var(--line) 50%, transparent);
+  padding: 2px 5px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.logStatus {
+  font-weight: 600;
+  text-align: right;
+}
+
+.logDuration {
+  color: var(--subtle);
+  text-align: right;
+}
+
+.logErrMsg {
+  color: #f26a77;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ==================== 日志详情弹窗 ==================== */
+.logDetailOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 150ms ease;
+}
+
+.logDetailPanel {
+  width: min(640px, 90vw);
+  max-height: 80vh;
+  overflow-y: auto;
+  border-radius: 18px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.25);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: slideUp 200ms ease;
+}
+
+.logDetailHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logDetailTitle {
+  font: 650 0.96rem/1.2 var(--font-ui);
+}
+
+.logDetailGrid {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 10px 14px;
+  font: 400 0.82rem/1.6 var(--font-ui);
+}
+
+.logDetailLabel {
+  color: var(--subtle);
+  font-weight: 600;
+}
+
+.logDetailValue {
+  color: var(--ink);
+  word-break: break-all;
+}
+
+.logDetailUrl {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+}
+
+.logDetailBody {
+  background: var(--base);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px;
+  font: 400 0.78rem/1.6 var(--font-mono);
+  white-space: pre-wrap;
+  word-break: break-all;
+  max-height: 300px;
+  overflow-y: auto;
+  color: var(--ink);
+}
+
+.logDetailBodyLabel {
+  font: 600 0.78rem/1.2 var(--font-ui);
+  color: var(--subtle);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 下载/复制按钮组（日志详情中） */
+.logBodyActions {
+  display: flex;
+  gap: 4px;
+}
+
+.logDlBtn {
+  font-size: 0.7rem !important;
+  padding: 3px 8px !important;
+}
+
+/* 消息提示 */
+.logToast {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: var(--ink);
+  color: var(--card);
+  font: 500 0.82rem/1.2 var(--font-ui);
+  z-index: 999;
+  animation: toastIn 200ms ease, toastOut 200ms ease 1.8s forwards;
+  pointer-events: none;
+}
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(8px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+@keyframes toastOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* JSON 查看器容器 */
+.logJsonViewer {
+  background: var(--base);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px;
+  max-height: 400px;
+  overflow-y: auto;
+  font-size: 0.78rem;
+}
+
+/* 日志文件信息 */
+.logFileInfo {
+  font: 400 0.72rem/1 var(--font-mono);
+  color: var(--subtle);
+}
+
+/* 日志底栏（排序按钮） */
+.logFooter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 20px;
+  border-top: 1px solid var(--line);
+  flex-shrink: 0;
+}

@@ -1,0 +1,95 @@
+@import "./themes/light.css";
+@import "./themes/dark.css";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-ui);
+  color: var(--ink);
+  background: var(--bg-0);
+}
+
+.shell {
+  height: 100dvh;
+  min-height: 100vh;
+  padding: 16px 18px calc(env(safe-area-inset-bottom, 0px) + 18px);
+  background:
+    radial-gradient(72% 60% at 6% 0%, var(--glow-hot) 0%, transparent 58%),
+    radial-gradient(64% 52% at 95% 6%, var(--glow-cool) 0%, transparent 54%),
+    radial-gradient(58% 48% at 50% 32%, var(--glow-neutral) 0%, transparent 68%),
+    linear-gradient(180deg, var(--shell-top) 0%, var(--shell-mid) 48%, var(--shell-bottom) 100%);
+  position: relative;
+  overflow: hidden;
+  transition: background 220ms ease, color 220ms ease;
+}
+
+.panel {
+  position: relative;
+  z-index: 1;
+  width: min(800px, 100%);
+  height: calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 32px);
+  min-height: calc(100vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 32px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.topbar {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  padding: 24px 6px;
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 78%, var(--surface-tint) 22%);
+}
+
+.topbar h1 {
+  margin: 0;
+  font: 650 1.02rem/1.2 var(--font-ui);
+  letter-spacing: -0.02em;
+}
+
+.topDragTarget {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: default;
+}
+
+.topDragRegion {
+  min-width: 0;
+  min-height: 34px;
+  height: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: default;
+}
+
+.topActions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.viewStage {
+  margin-top: 24px;
+  min-height: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  scrollbar-width: none;
+}
+
+.viewStage::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}

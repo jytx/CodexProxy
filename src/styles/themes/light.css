@@ -1,0 +1,35 @@
+:root {
+  --font-ui:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", sans-serif;
+  --font-mono:
+    "SFMono-Regular", "SF Mono", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  --ink: #182230;
+  --subtle: #58657a;
+  --bg-0: #f8fbff;
+  --bg-1: #eef4ff;
+  --bg-2: #e4edfa;
+  --line: rgba(36, 62, 98, 0.18);
+  --brand-hot: #dd741f;
+  --brand-cool: #0f7f77;
+  --brand: #dd741f;
+  --brand-soft: rgba(255, 186, 136, 0.26);
+  --brand-strong: #0f7f77;
+  --card: rgba(255, 255, 255, 0.84);
+  --panel-bg: rgba(255, 255, 255, 0.82);
+  --panel-shadow: 0 14px 34px rgba(53, 80, 118, 0.12), inset 0 1px rgba(255, 255, 255, 0.92);
+  --surface-tint: #ffffff;
+  --surface-highlight: rgba(255, 255, 255, 0.58);
+  --surface-hover-bg: rgba(255, 255, 255, 0.28);
+  --surface-selected-bg: rgba(47, 210, 200, 0.12);
+  --button-primary-bg: linear-gradient(120deg, rgba(255, 143, 56, 0.2), rgba(255, 143, 56, 0.08));
+  --button-primary-border: rgba(224, 137, 57, 0.45);
+  --button-ghost-bg: rgba(47, 210, 200, 0.1);
+  --button-ghost-border: rgba(15, 127, 119, 0.35);
+  --overlay-scrim: rgba(8, 18, 34, 0.35);
+  --shell-top: #f4f8ff;
+  --shell-mid: #edf3fb;
+  --shell-bottom: #e8eff8;
+  --glow-hot: rgba(255, 190, 140, 0.12);
+  --glow-cool: rgba(120, 210, 220, 0.08);
+  --glow-neutral: rgba(200, 210, 230, 0.06);
+}

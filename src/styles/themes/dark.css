@@ -1,0 +1,31 @@
+:root[data-theme="dark"] {
+  --ink: #f6efe3;
+  --subtle: #aeb5c8;
+  --bg-0: #070d17;
+  --bg-1: #0f1a2d;
+  --bg-2: #142742;
+  --line: rgba(222, 232, 255, 0.18);
+  --brand-hot: #ff8f38;
+  --brand-cool: #2fd2c8;
+  --brand: #ff9c60;
+  --brand-soft: rgba(255, 169, 115, 0.3);
+  --brand-strong: #66e0d7;
+  --card: rgba(10, 19, 35, 0.68);
+  --panel-bg: rgba(5, 10, 20, 0.66);
+  --panel-shadow: 0 18px 42px rgba(0, 0, 0, 0.34), inset 0 1px rgba(255, 255, 255, 0.06);
+  --surface-tint: #213149;
+  --surface-highlight: rgba(255, 255, 255, 0.12);
+  --surface-hover-bg: rgba(164, 192, 234, 0.12);
+  --surface-selected-bg: rgba(47, 210, 200, 0.18);
+  --button-primary-bg: linear-gradient(120deg, rgba(255, 143, 56, 0.3), rgba(255, 143, 56, 0.15));
+  --button-primary-border: rgba(255, 196, 138, 0.5);
+  --button-ghost-bg: rgba(47, 210, 200, 0.08);
+  --button-ghost-border: rgba(117, 231, 222, 0.45);
+  --overlay-scrim: rgba(3, 10, 18, 0.62);
+  --shell-top: #070d17;
+  --shell-mid: #0a1525;
+  --shell-bottom: #081020;
+  --glow-hot: rgba(255, 140, 60, 0.08);
+  --glow-cool: rgba(47, 210, 200, 0.06);
+  --glow-neutral: rgba(80, 110, 160, 0.06);
+}
